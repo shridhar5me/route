@@ -8,14 +8,6 @@ st.markdown('Upload CSV of charging stations (x,y) or generate random points. Fi
 uploaded = st.file_uploader('CSV: x,y (no header)', type=['csv'])
 if uploaded:
     data = [tuple(map(float,line.strip().split(','))) for line in uploaded.getvalue().decode().strip().splitlines()]
-else:
-    n = st.slider('Number of points (including base)', 2, 12, 6)
-    seed = st.number_input('Random seed', 0, 9999, 42)
-    if st.button('Generate random'):
-        random.seed(seed)
-        data = [(0.0,0.0)] + [(random.uniform(-10,10), random.uniform(-10,10)) for _ in range(n-1)]
-    else:
-        st.stop()
 
 def dist(a,b):
     return math.hypot(a[0]-b[0],a[1]-b[1])
