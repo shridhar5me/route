@@ -3,7 +3,7 @@ import math,random
 import matplotlib.pyplot as plt
 
 st.title('Smart EV Charging Route — DP TSP (Bitmask)')
-st.markdown('Upload CSV of charging stations (x,y) or generate random points. First point is the home/base.')
+st.markdown('Upload CSV of charging stations (x,y)')
 
 def dist(a,b):
     return math.hypot(a[0]-b[0],a[1]-b[1])
